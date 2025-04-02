@@ -74,7 +74,7 @@ function tree:get_completions(context, on_items_by_provider)
         items_by_provider[node.id] = items
         is_all_cached = is_all_cached and is_cached
 
-        if should_push_upstream or node.source.name == 'emoji' then self:emit_completions(items_by_provider, on_items_by_provider) end
+        if should_push_upstream or node.source.name == 'emoji' or node.source.name == 'Path' then self:emit_completions(items_by_provider, on_items_by_provider) end
         if #items ~= 0 then return resolve() end
 
         -- run dependents if the source returned 0 items
